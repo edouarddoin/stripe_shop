@@ -6,7 +6,10 @@
       <li>Product price : <%=product.price %></li>
       <li>Product stock : <%= product.stock %></li>
     </ul>
+    <%= link_to "More info", product_path(product) %>
   <% end %>
+</div>
 
+<div class="addproduct">
   <%= link_to "add a product", new_product_path %>
 </div>
