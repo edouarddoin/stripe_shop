@@ -1,3 +1,3 @@
 class Product < ApplicationRecord
-  validates :price, :stock, :description, presence: true
+  monetize :price_cents
 end

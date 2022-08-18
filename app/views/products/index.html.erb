@@ -3,8 +3,8 @@
     <ul>
       <h3><%= product.name %></h3>
       <li>Product description : <%= product.description %></li>
-      <li>Product price : <%=product.price %></li>
       <li>Product stock : <%= product.stock %></li>
+      <li>Product price : <%= humanized_money_with_symbol(product.price)%></li>
     </ul>
     <%= link_to "More info", product_path(product) %>
   <% end %>
