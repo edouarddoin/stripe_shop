@@ -1,0 +1,8 @@
+<ul>
+  <li>Name:<%= @product.name %></li>
+  <li> Il reste <%= @product.stock %> produits en stock</li>
+</ul>
+
+<%= link_to product_orders_path(@product), data: { turbo_method: :post } do %>
+  <p>Add to cart P</p>
+<% end %>

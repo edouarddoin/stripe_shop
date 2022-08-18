@@ -10,18 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_17_182041) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_18_093237) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "items", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.bigint "product_id", null: false
-    t.bigint "order_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_items_on_order_id"
-    t.index ["product_id"], name: "index_items_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -30,17 +26,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_17_182041) do
     t.integer "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_id"
+    t.index ["product_id"], name: "index_orders_on_product_id"
     t.index ["status_id"], name: "index_orders_on_status_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
-    t.integer "price"
     t.integer "stock"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.string "sku"
+    t.bigint "categories_id"
+    t.integer "price_cents", default: 0, null: false
+    t.index ["categories_id"], name: "index_products_on_categories_id"
   end
 
   create_table "statuses", force: :cascade do |t|
@@ -61,8 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_17_182041) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "items", "orders"
-  add_foreign_key "items", "products"
+  add_foreign_key "orders", "products"
   add_foreign_key "orders", "statuses"
   add_foreign_key "orders", "users"
 end
