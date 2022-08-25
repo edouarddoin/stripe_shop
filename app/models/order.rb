@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
-  belongs_to :user
   belongs_to :status
-
-  validates :product_id, presence: true
+  belongs_to :user
+  belongs_to :product
+  monetize :amount_cents
 end

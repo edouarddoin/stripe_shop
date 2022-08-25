@@ -1,8 +1,16 @@
+<script src="https://js.stripe.com/v3/"></script>
+
 <ul>
   <li>Name:<%= @product.name %></li>
   <li> Il reste <%= @product.stock %> produits en stock</li>
+  <li>Prix : <%=humanized_money(@product.price_cents)%>€</li>
 </ul>
 
-<%= link_to product_orders_path(@product), data: { turbo_method: :post } do %>
-  <p>Add to cart P</p>
+<% %>
+<%=  %> <%# pe %>
+
+
+<%= form_with url: orders_path, data: {turbo: false} do %>
+  <%= hidden_field_tag 'product_id', @product.id %>
+  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
 <% end %>
