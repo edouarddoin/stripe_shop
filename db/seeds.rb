@@ -9,7 +9,9 @@
 puts 'Cleaning DB'
 Product.destroy_all
 Status.destroy_all
+Order.destroy_all
 puts 'DB Cleaned'
+
 
 puts 'Creating categories...'
 cat = Category.create(name: 'cat1')
@@ -20,7 +22,7 @@ product_1 = Product.create(
   categories_id: cat.id,
   stock: 30,
   description: 'Un produit extraordinaire',
-  price_cents:400)
+  price_cents: 400)
 puts 'One product created'
 
 product_2 = Product.create(
@@ -29,6 +31,6 @@ product_2 = Product.create(
   categories_id: cat.id,
   stock: 30,
   description: 'Un produit extraordinaire',
-  price_cents:400)
+  price_cents: 400)
 puts 'One product created'
 status_1 = Status.create(name: 'en cours de validation')

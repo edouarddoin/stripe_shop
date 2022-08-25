@@ -1,11 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user: one
   status: one
-  total_price: 1
+  product_sku: MyString
+  amount: 
+  checkout_session_id: MyString
+  user: one
+  product: one
 
 two:
-  user: two
   status: two
-  total_price: 1
+  product_sku: MyString
+  amount: 
+  checkout_session_id: MyString
+  user: two
+  product: two
