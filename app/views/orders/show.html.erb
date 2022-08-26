@@ -2,8 +2,10 @@
 
 <div class="container">
   <div class="col-md-3">
-    <%= @order.user_id %>
-    <%= @order.amount %>
-    <%= @order.status_id %>
+    La commande n°<%= @order.id %> est <%= @order.status.name %>
+  </div>
+  <div>Montant de la commande : <%= @order.amount %></div>
+  <div>
+   Client : <%= @order.user.email %>
   </div>
 </div>
