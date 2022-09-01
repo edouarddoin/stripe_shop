@@ -26,4 +26,8 @@ class OrdersController < ApplicationController
   def show
     @order = current_user.orders.find(params[:id])
   end
+
+  def validate
+    @order.status_id == 8
+  end
 end
