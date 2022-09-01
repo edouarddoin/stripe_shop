@@ -7,16 +7,17 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts 'Cleaning DB'
-Product.destroy_all
-Status.destroy_all
+
 Order.destroy_all
+Product.destroy_all
+User.destroy_all
+Status.destroy_all
 puts 'DB Cleaned'
-
-
 puts 'Creating categories...'
 cat = Category.create(name: 'cat1')
 
-product_1 = Product.create(
+puts 'creating products'
+Product.create(
   name: 'Product 1',
   sku: 'p1',
   categories_id: cat.id,
@@ -25,12 +26,15 @@ product_1 = Product.create(
   price_cents: 400)
 puts 'One product created'
 
-product_2 = Product.create(
+Product.create(
   name: 'Product 2',
   sku: 'p2',
   categories_id: cat.id,
   stock: 30,
   description: 'Un produit extraordinaire',
   price_cents: 400)
-puts 'One product created'
-status_1 = Status.create(name: 'en cours de validation')
+puts 'Two products created'
+
+Status.create(name: 'en cours de validation')
+Status.create(name: 'validé')
+puts 'status created'
