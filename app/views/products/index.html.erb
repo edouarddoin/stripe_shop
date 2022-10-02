@@ -4,9 +4,9 @@
   <% @products.each do |product| %>
     <ul>
       <h3><%= product.name %></h3>
-      <li>Product description : <%= product.description %></li>
-      <li>Product stock : <%= product.stock %></li>
-      <li>Product price : <%= humanized_money(product.price)%>€</li>
+      <p>Product description : <%= product.description %></p>
+      <p>Product stock : <%= product.stock %></p>
+      <p>Product price : <%= humanized_money(product.price)%>€</p>
     </ul>
     <%= link_to "More info", product_path(product) %>
   <% end %>

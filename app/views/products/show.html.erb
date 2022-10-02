@@ -3,11 +3,11 @@
 <ul>
   <li>Name:<%= @product.name %></li>
   <li> Il reste <%= @product.stock %> produits en stock</li>
-  <li>Prix : <%=humanized_money(@product.price_cents)%>€</li>
+  <li>Prix : <%=humanized_money(@product.price)%>€</li>
 </ul>
 
-<% %>
-<%=  %> <%# pe %>
+<%# <% ER %>
+<%# <%=  ==PE %>
 
 
 <%= form_with url: orders_path, data: {turbo: false} do %>
